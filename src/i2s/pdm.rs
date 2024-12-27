@@ -465,6 +465,7 @@ pub(super) mod config {
                 slot_bit_width: SlotBitWidth::Auto,
                 slot_mode,
                 slot_mask,
+                data_fmt:i2s_pdm_data_fmt_t::I2S_PDM_DATA_FMT_PCM,
             }
         }
 
@@ -501,6 +502,7 @@ pub(super) mod config {
                 slot_bit_width: self.slot_bit_width.as_sdk(),
                 slot_mode: self.slot_mode.as_sdk(),
                 slot_mask: self.slot_mask.as_sdk(),
+                data_fmt = self.data_fmt.as_sdk(),
                 ..Default::default()
             }
         }
@@ -1187,7 +1189,7 @@ pub(super) mod config {
                 sd_dither: self.sd_dither,
                 #[cfg(esp_idf_soc_i2s_hw_version_2)]
                 sd_dither2: self.sd_dither2,
-                // i2s_pdm_data_fmt_t::I2S_PDM_DATA_FMT_PCM
+                data_fmt:i2s_pdm_data_fmt_t::I2S_PDM_DATA_FMT_PCM,
                 ..Default::default()
             }
         }
